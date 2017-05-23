@@ -43,7 +43,7 @@ def masterReleaseFlow()
 def gitUpdate(String gitURL, String gitBranch = "master", String phaseTitle = "GIT checkout")
 {
     stage( phaseTitle ) {
-        printf "[GIT URL] \\e[31m"+ gitURL +"\\e[0m" ;
+        printf "[GIT URL] \e[31m" + gitURL + "\e[0m" ;
         echo "GIT BRANCH ==> " + gitBranch;
     }
 }
