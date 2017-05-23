@@ -66,10 +66,6 @@ def mavenUnitTests(String mavenPomPath = "pom.xml", String mavenGoals = "test", 
 
 def ciPostStep(String archiveFileSet = "target/**/*.jar")
 {
-    stage( phaseTitle ) {
-        echo "Maven POM path ==> " + mavenPomPath;
-        echo "MAVEN goals ==> " + mavenGoals;
-    }
     post {
         always {
             archive archiveFileSet
