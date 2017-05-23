@@ -17,7 +17,7 @@ def mainFlow()
 
 def featureCIFlow()
 {
-    gitUpdate("git@...")
+    gitUpdate("\e[31mgit@...\e[0m\n")
     mavenBuild()
     mavenUnitTests()
 }
