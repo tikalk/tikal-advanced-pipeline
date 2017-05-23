@@ -72,7 +72,7 @@ def mavenBuild(String mavenPomPath = "pom.xml", String mavenGoals = "clean compi
         echo "[Maven POM path] " + mavenPomPath;
         echo "[MAVEN goals] " + mavenGoals;
     }
-    ciPostStep()
+    ciPostStep("**/*")
 }
 
 def mavenUnitTests(String mavenPomPath = "pom.xml", String mavenGoals = "test", String phaseTitle = "Unit Tests")
@@ -85,7 +85,6 @@ def mavenUnitTests(String mavenPomPath = "pom.xml", String mavenGoals = "test", 
 
 def ciPostStep(String archiveFileSet = "target/**/*.jar")
 {
-    echo archiveFileSet
     archive archiveFileSet
     junit 'target/surefire-reports/*.xml'
     notifyBuild('SUCCESS')
