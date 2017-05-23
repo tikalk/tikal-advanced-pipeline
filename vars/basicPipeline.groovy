@@ -12,6 +12,8 @@ def call(body)
 
 def mainFlow()
 {
+    echo "[Flow] " + env.FLOW;
+ 
     featureCIFlow()
 }
 
@@ -43,7 +45,7 @@ def masterReleaseFlow()
 def gitUpdate(String gitURL, String gitBranch = "master", String phaseTitle = "GIT checkout")
 {
     stage( phaseTitle ) {
-        printf "[GIT URL] " + gitURL ;
+        echo "[GIT URL] " + gitURL ;
         echo "[GIT BRANCH] " + gitBranch;
     }
 }
