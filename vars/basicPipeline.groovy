@@ -99,7 +99,7 @@ def archiveFiles(String archiveFileSet = "target/**/*.jar")
 def junitReport(String junitFiles = "target/surefire-reports/*.xml")
 {
     echo "[Junit files] " + junitFiles;
-    junit junitFiles
+    // junit junitFiles
 }
 
 def notifyBuild(String buildStatus = 'STARTED') {
