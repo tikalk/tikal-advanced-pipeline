@@ -24,7 +24,7 @@ def mainFlow()
             masterReleaseFlow()
             break
         default:
-            echo "[Flow] " + env.FLOW + " - not supported";
+            echo "[ERROR] ''" + env.FLOW + "'' flow - not supported!";
             currentBuild.result = 'FAILURE'
             break
     }    
