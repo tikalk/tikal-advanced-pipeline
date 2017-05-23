@@ -43,24 +43,24 @@ def masterReleaseFlow()
 def gitUpdate(String gitURL, String gitBranch = "master", String phaseTitle = "GIT checkout")
 {
     stage( phaseTitle ) {
-        printf "[GIT URL] \e[31m" + gitURL + "\e[0m" ;
-        echo "GIT BRANCH ==> " + gitBranch;
+        printf "[GIT URL] " + gitURL ;
+        echo "[GIT BRANCH] " + gitBranch;
     }
 }
 
 def mavenBuild(String mavenPomPath = "pom.xml", String mavenGoals = "clean compile -DskipTests", String phaseTitle = "Maven build")
 {
     stage( phaseTitle ) {
-        echo "Maven POM path ==> " + mavenPomPath;
-        echo "MAVEN goals ==> " + mavenGoals;
+        echo "[Maven POM path] " + mavenPomPath;
+        echo "[MAVEN goals] " + mavenGoals;
     }
 }
 
 def mavenUnitTests(String mavenPomPath = "pom.xml", String mavenGoals = "test", String phaseTitle = "Unit Tests")
 {
     stage( phaseTitle ) {
-        echo "Maven POM path ==> " + mavenPomPath;
-        echo "MAVEN goals ==> " + mavenGoals;
+        echo "[Maven POM path] " + mavenPomPath;
+        echo "[MAVEN goals] " + mavenGoals;
     }
 }
 
