@@ -36,6 +36,7 @@ def featureCIFlow()
     gitUpdate("git@...")
     mavenBuild()
     mavenUnitTests()
+    ciPostStep()
 }
 
 def masterCIFlow()
@@ -44,6 +45,7 @@ def masterCIFlow()
     gitUpdate("git@...")
     mavenBuild()
     mavenUnitTests()
+    ciPostStep("target/**/*.tar")
 }
 
 def masterReleaseFlow()
@@ -52,6 +54,7 @@ def masterReleaseFlow()
     gitUpdate("git@...")
     mavenBuild()
     mavenUnitTests()
+    ciPostStep("target/**/*.tar")
 }
 
 
@@ -72,7 +75,6 @@ def mavenBuild(String mavenPomPath = "pom.xml", String mavenGoals = "clean compi
         echo "[Maven POM path] " + mavenPomPath;
         echo "[MAVEN goals] " + mavenGoals;
     }
-    ciPostStep("**/*")
 }
 
 def mavenUnitTests(String mavenPomPath = "pom.xml", String mavenGoals = "test", String phaseTitle = "Unit Tests")
