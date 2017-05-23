@@ -2,14 +2,9 @@
 
 import settings
 
-def call(String flow = "feature-CI") 
+def call(settings set) 
 {
-  // evaluate the body block, and collect configuration into the object
-  //def config = [:]
-  //body.resolveStrategy = Closure.DELEGATE_FIRST
-  //body.delegate = config
-  mainFlow(flow)
-  
+  mainFlow(set.flow)
 }
 
 def mainFlow(String flow)
