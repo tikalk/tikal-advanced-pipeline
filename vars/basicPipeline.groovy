@@ -27,7 +27,6 @@ def mainFlow()
         echo "[Flow] " + env.FLOW + " - not supported";
             break
     }    
-    featureCIFlow()
 }
 
 def featureCIFlow()
