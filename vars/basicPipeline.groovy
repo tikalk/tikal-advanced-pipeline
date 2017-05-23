@@ -12,7 +12,7 @@ def call(body)
 
 def mainFlow()
 {
-    echo "[Flow] " + env.FLOW;
+   // echo "[Flow] " + env.FLOW;
  
     featureCIFlow()
 }
