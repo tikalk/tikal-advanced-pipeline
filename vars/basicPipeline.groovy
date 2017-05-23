@@ -24,7 +24,7 @@ def call(settings set)
 def featureCIFlow(settings set)
 {
     echo "[Flow] " + flow;
-    gitUpdate(set.gitURL)
+    gitUpdate(set.gitUrl)
     mavenBuild()
     mavenUnitTests()
     ciPostStep()
@@ -33,7 +33,7 @@ def featureCIFlow(settings set)
 def masterCIFlow(settings set)
 {
     echo "[Flow] " + flow;
-    gitUpdate(set.gitURL)
+    gitUpdate(set.gitUrl)
     mavenBuild()
     mavenUnitTests()
     ciPostStep("target/**/*.tar")
@@ -42,7 +42,7 @@ def masterCIFlow(settings set)
 def masterReleaseFlow(settings set)
 {
     echo "[Flow] " + flow;
-    gitUpdate(set.gitURL)
+    gitUpdate(set.gitUrl)
     mavenBuild()
     mavenUnitTests()
     ciPostStep("target/**/*.tar")
