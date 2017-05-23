@@ -1,19 +1,19 @@
 #!/usr/bin/groovy
 
-def call(body) 
+def call(String flow = "feature-CI") 
 {
   // evaluate the body block, and collect configuration into the object
   //def config = [:]
   //body.resolveStrategy = Closure.DELEGATE_FIRST
   //body.delegate = config
-  mainFlow()
+  mainFlow(flow)
   
 }
 
-def mainFlow()
+def mainFlow(String flow)
 {
 
-    switch (env.FLOW) {
+    switch (flow) {
         case "feature-CI":
             featureCIFlow()
             break
@@ -24,7 +24,7 @@ def mainFlow()
             masterReleaseFlow()
             break
         default:
-            echo "[ERROR] '" + env.FLOW + "' flow - not supported!";
+            echo "[ERROR] '" + flow + "' flow - not supported!";
             currentBuild.result = 'FAILURE'
             break
     }    
@@ -32,7 +32,7 @@ def mainFlow()
 
 def featureCIFlow()
 {
-    echo "[Flow] " + env.FLOW;
+    echo "[Flow] " + flow;
     gitUpdate("git@...")
     mavenBuild()
     mavenUnitTests()
@@ -41,7 +41,7 @@ def featureCIFlow()
 
 def masterCIFlow()
 {
-    echo "[Flow] " + env.FLOW;
+    echo "[Flow] " + flow;
     gitUpdate("git@...")
     mavenBuild()
     mavenUnitTests()
@@ -50,7 +50,7 @@ def masterCIFlow()
 
 def masterReleaseFlow()
 {
-    echo "[Flow] " + env.FLOW;
+    echo "[Flow] " + flow;
     gitUpdate("git@...")
     mavenBuild()
     mavenUnitTests()
@@ -85,9 +85,9 @@ def mavenUnitTests(String mavenPomPath = "pom.xml", String mavenGoals = "test", 
     }
 }
 
-def ciPostStep(String archiveFileSet = "target/**/*.jar", String junitFiles = "target/surefire-reports/*.xml")
+def ciPostStep(String archiveFileSet = "target/**/*.jar", String junitFiles = "target/surefire-reports/*.xml", String phaseTitle = "Post-build")
 {
-    stage( "Post-build phase" ) {
+    stage( phaseTitle ) {
         archiveFiles(archiveFileSet)
         junitReport(junitFiles)
         notifyBuild('SUCCESS')
