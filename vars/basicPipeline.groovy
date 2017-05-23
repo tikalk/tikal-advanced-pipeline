@@ -87,6 +87,7 @@ def ciPostStep(String archiveFileSet = "target/**/*.jar", String junitFiles = "t
 {
     archiveFiles(archiveFileSet)
     junitReport(junitFiles)
+    
     notifyBuild('SUCCESS')
 }
 
