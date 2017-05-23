@@ -32,6 +32,7 @@ def mainFlow()
 
 def featureCIFlow()
 {
+    echo "[Flow] " + env.FLOW;
     gitUpdate("git@...")
     mavenBuild()
     mavenUnitTests()
@@ -39,6 +40,7 @@ def featureCIFlow()
 
 def masterCIFlow()
 {
+    echo "[Flow] " + env.FLOW;
     gitUpdate("git@...")
     mavenBuild()
     mavenUnitTests()
@@ -46,6 +48,7 @@ def masterCIFlow()
 
 def masterReleaseFlow()
 {
+    echo "[Flow] " + env.FLOW;
     gitUpdate("git@...")
     mavenBuild()
     mavenUnitTests()
