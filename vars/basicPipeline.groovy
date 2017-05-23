@@ -4,20 +4,15 @@ import settings
 
 def call(settings set) 
 {
-  mainFlow(set.flow)
-}
-
-def mainFlow(String flow)
-{
-    switch (flow) {
+    switch (set.flow) {
         case "feature-CI":
-            featureCIFlow()
+            featureCIFlow(set)
             break
         case "master-CI":
-            masterCIFlow()
+            masterCIFlow(set)
             break
         case "master-Release":
-            masterReleaseFlow()
+            masterReleaseFlow(set)
             break
         default:
             echo "[ERROR] '" + flow + "' flow - not supported!";
@@ -26,28 +21,28 @@ def mainFlow(String flow)
     }    
 }
 
-def featureCIFlow()
+def featureCIFlow(settings set)
 {
     echo "[Flow] " + flow;
-    gitUpdate("git@...")
+    gitUpdate(set.gitURL)
     mavenBuild()
     mavenUnitTests()
     ciPostStep()
 }
 
-def masterCIFlow()
+def masterCIFlow(settings set)
 {
     echo "[Flow] " + flow;
-    gitUpdate("git@...")
+    gitUpdate(set.gitURL)
     mavenBuild()
     mavenUnitTests()
     ciPostStep("target/**/*.tar")
 }
 
-def masterReleaseFlow()
+def masterReleaseFlow(settings set)
 {
     echo "[Flow] " + flow;
-    gitUpdate("git@...")
+    gitUpdate(set.gitURL)
     mavenBuild()
     mavenUnitTests()
     ciPostStep("target/**/*.tar")
