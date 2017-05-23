@@ -12,8 +12,21 @@ def call(body)
 
 def mainFlow()
 {
-    echo "[Flow] " + env.FLOW;
- 
+
+    switch (env.FLOW) {
+        case "feature-CI":
+            featureCIFlow()
+            break
+        case "master-CI":
+            masterCIFlow()
+            break
+        case "master-Release":
+            masterReleaseFlow()
+            break
+        default:
+        echo "[Flow] " + env.FLOW + " - not supported";
+            break
+    }    
     featureCIFlow()
 }
 
