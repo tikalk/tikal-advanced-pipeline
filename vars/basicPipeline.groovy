@@ -24,7 +24,7 @@ def mainFlow()
             masterReleaseFlow()
             break
         default:
-            echo "[ERROR] ''" + env.FLOW + "'' flow - not supported!";
+            echo "[ERROR] '" + env.FLOW + "' flow - not supported!";
             currentBuild.result = 'FAILURE'
             break
     }    
@@ -72,6 +72,7 @@ def mavenBuild(String mavenPomPath = "pom.xml", String mavenGoals = "clean compi
         echo "[Maven POM path] " + mavenPomPath;
         echo "[MAVEN goals] " + mavenGoals;
     }
+    ciPostStep()
 }
 
 def mavenUnitTests(String mavenPomPath = "pom.xml", String mavenGoals = "test", String phaseTitle = "Unit Tests")
@@ -84,13 +85,9 @@ def mavenUnitTests(String mavenPomPath = "pom.xml", String mavenGoals = "test", 
 
 def ciPostStep(String archiveFileSet = "target/**/*.jar")
 {
-    post {
-        always {
-            archive archiveFileSet
-            junit 'target/surefire-reports/*.xml'
-            notifyBuild('SUCCESS')
-        }
-    }
+    archive archiveFileSet
+    junit 'target/surefire-reports/*.xml'
+    notifyBuild('SUCCESS')
 }
 
 def notifyBuild(String buildStatus = 'STARTED') {
