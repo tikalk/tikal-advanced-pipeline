@@ -17,7 +17,7 @@ def mainFlow()
 
 def featureCIFlow()
 {
-    gitUpdate("\e[31mgit@...\e[0m\n")
+    gitUpdate("git@...")
     mavenBuild()
     mavenUnitTests()
 }
@@ -43,7 +43,7 @@ def masterReleaseFlow()
 def gitUpdate(String gitURL, String gitBranch = "master", String phaseTitle = "GIT checkout")
 {
     stage( phaseTitle ) {
-        echo "GIT URL ==> " + gitURL;
+        echo "[GIT URL] \\e[31m"+ gitURL +"\\e[0m" ;
         echo "GIT BRANCH ==> " + gitBranch;
     }
 }
