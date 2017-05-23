@@ -12,7 +12,7 @@ def call(String flow = "feature-CI")
 
 def mainFlow(String flow)
 {
-    echo "[buildflow] " + buildflow
+    echo "[buildflow] " + settings.buildflow
     switch (flow) {
         case "feature-CI":
             featureCIFlow()
