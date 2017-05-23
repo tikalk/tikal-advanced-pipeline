@@ -1,5 +1,7 @@
 #!/usr/bin/groovy
 
+import settings
+
 def call(String flow = "feature-CI") 
 {
   // evaluate the body block, and collect configuration into the object
