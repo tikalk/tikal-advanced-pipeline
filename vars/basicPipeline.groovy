@@ -12,7 +12,6 @@ def call(body)
 
 def mainFlow()
 {
-    ansiColor("xterm")
     featureCIFlow()
 }
 
