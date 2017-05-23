@@ -22,14 +22,14 @@ def featureCIFlow()
     mavenUnitTests()
 }
 
-def featureCIFlow()
+def masterCIFlow()
 {
     gitUpdate("git@...")
     mavenBuild()
     mavenUnitTests()
 }
 
-def featureCIFlow()
+def masterReleaseFlow()
 {
     gitUpdate("git@...")
     mavenBuild()
