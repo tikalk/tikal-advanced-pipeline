@@ -1,6 +1,8 @@
 #!/usr/bin/groovy
 
-def notifyBuild(String buildStatus = 'STARTED') {
+package com.tikalk;
+
+def notifyBuild(String buildStatus = 'STARTED', String mailContentFile) {
     // build status of null means successful
     buildStatus = buildStatus ?: 'SUCCESS'
 
@@ -9,7 +11,7 @@ def notifyBuild(String buildStatus = 'STARTED') {
     def colorName = 'RED'
     def colorCode = '#FF0000'
     def mailSubject = "${buildStatus}: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})"
-    def mailContent = readFile 'popcorn/pipelines/CI-master/summary.html'
+    def mailContent = readFile mailContentFile
 
     // Override default values based on build status
     if (buildStatus == 'STARTED') {
@@ -25,7 +27,7 @@ def notifyBuild(String buildStatus = 'STARTED') {
 
     wrap([$class: 'BuildUser']) {
         echo "Send SUMMARY HTML Mail ..."
-        emailext(to: "${env.DEFAULT_RECIPIENTS}", replyTo: "popcorn@amdocs.com",
+        emailext(to: "${env.DEFAULT_RECIPIENTS}", replyTo: "dorons@tikalk.com",
                 mimeType: 'text/html', subject: mailSubject, body: mailContent,
                 recipientProviders: [[$class: 'DevelopersRecipientProvider'],[$class: 'CulpritsRecipientProvider']]);
     }
