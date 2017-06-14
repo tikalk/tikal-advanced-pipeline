@@ -12,6 +12,7 @@ def notifyBuild(String buildStatus = 'STARTED', String mailContentFile) {
     def colorCode = '#FF0000'
     def mailSubject = "${buildStatus}: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})"
     def mailContent = readFile mailContentFile
+                               // 'popcorn/pipelines/CI-master/summary.html'
 
     // Override default values based on build status
     if (buildStatus == 'STARTED') {
