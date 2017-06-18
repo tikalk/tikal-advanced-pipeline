@@ -33,7 +33,7 @@ class settings implements Serializable {
   }
   
   def setbuildStatus(value) {
-      buildStatus = value
+      buildStatus = currentBuild.result
   }
   def getbuildStatus() {
       buildStatus
