@@ -18,6 +18,9 @@ def call(String buildStatus = 'STARTED', String mailContentFile) {
     out.println "================== BUILD_URL      ${env.BUILD_URL} ======================"
 
     def mailSubject = "${buildStatus}: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})"
+    out.println "================== mailSubject      "+ mailSubject + " ======================"
+    out.println "================== mailContent      "+ mailContent + " ======================"
+
     out.println "================== Printed do Jenkins console 2 ====================="
 
     def mailContent = readFile mailContentFile
