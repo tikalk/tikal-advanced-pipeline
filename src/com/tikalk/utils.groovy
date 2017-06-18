@@ -2,7 +2,7 @@
 
 package com.tikalk;
 
-def notifyBuild(String buildStatus = 'STARTED', String mailContentFile) {
+def call(String buildStatus = 'STARTED', String mailContentFile) {
     // build status of null means successful
     buildStatus = buildStatus ?: 'SUCCESS'
 
