@@ -19,7 +19,7 @@ def call(String buildStatus = 'STARTED', String mailContentFile) {
 
     def mailSubject = "${buildStatus}: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})"
     def mailContent = readFile mailContentFile
-                               // 'popcorn/pipelines/CI-master/summary.html'
+
     out.println "================== 1111111111111 ======================"
 
     // Requires "user build vars plugin"
