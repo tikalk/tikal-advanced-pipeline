@@ -22,7 +22,7 @@ def call(String buildStatus = 'STARTED') {
 
     out.println "================== Printed do Jenkins console 2 ====================="
 
-    def mailContent = readFile ${pwd()}/sample.html
+    def mailContent = readFile ${env.WORKSPCE}]/sample.html
 
     out.println "================== 1111111111111 ======================"
 
