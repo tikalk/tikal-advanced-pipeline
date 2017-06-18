@@ -24,6 +24,7 @@ def call(String buildStatus = 'STARTED', String mailContentFile) {
         colorCode = '#FF0000'
     }
 
+    // Requires "user build vars plugin"
     wrap([$class: 'BuildUser']) {
         echo "Send SUMMARY HTML Mail ..."
         emailext(to: "${env.DEFAULT_RECIPIENTS}", replyTo: "dorons@tikalk.com",
