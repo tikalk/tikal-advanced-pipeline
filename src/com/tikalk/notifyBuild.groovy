@@ -1,7 +1,5 @@
 #!/usr/bin/groovy
 
-package com.tikalk;
-
 def call(String buildStatus = 'STARTED', String mailContentFile) {
     // build status of null means successful
     buildStatus = buildStatus ?: 'SUCCESS'
