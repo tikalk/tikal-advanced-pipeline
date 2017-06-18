@@ -9,7 +9,7 @@ class settings implements Serializable {
       colorName = value
   }
   def getcolorName() {
-      colorNameå
+      colorName
   }
   def setcolorCode(value) {
       colorCode = value
