@@ -27,7 +27,7 @@ def call(String buildStatus = 'STARTED', String mailContentFile) {
     // Requires "user build vars plugin"
     wrap([$class: 'BuildUser']) {
         out.println "================== Send SUMMARY HTML Mail ... ======================"
-        emailext(to: "doronshai@gmail.com", replyTo: "doronshai@tikalk.com",
+        emailext(to: "doronshai@gmail.com", replyTo: "dorons@tikalk.com",
                 mimeType: 'text/html', subject: mailSubject, body: mailContent,
                 recipientProviders: [[$class: 'DevelopersRecipientProvider'],[$class: 'CulpritsRecipientProvider']]);
     }
