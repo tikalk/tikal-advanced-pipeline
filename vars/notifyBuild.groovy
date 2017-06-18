@@ -12,7 +12,11 @@ def call(String buildStatus = 'STARTED', String mailContentFile) {
     out = config['out']
     
     out.println "================== Printed do Jenkins console ======================"
-    
+    out.println "================== buildStatus " + ${buildStatus} + " ======================"
+    out.println "================== JOB_NAME " + ${env.JOB_NAME} + " ======================"
+    out.println "================== BUILD_NUMBER " + ${env.BUILD_NUMBER} + " ======================"
+    out.println "================== BUILD_URL " + ${env.BUILD_URL} + " ======================"
+
     def mailSubject = "${buildStatus}: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})"
     def mailContent = readFile mailContentFile
                                // 'popcorn/pipelines/CI-master/summary.html'
