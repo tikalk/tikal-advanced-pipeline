@@ -5,15 +5,28 @@ def call(String buildStatus = 'STARTED', String mailContentFile) {
     // build status of null means successful
     buildStatus = buildStatus ?: 'SUCCESS'
 
+    def out
+    def config = new HashMap()
+    def bindings = getBinding()
+    config.putAll(bindings.getVariables())
+    out = config['out']
+    
+    out.println "================== Printed do Jenkins console ======================"
+    
+    
+    
+    
+    
     // Default values
     //def TEST = '\${CHANGES, showPaths=true, format="%a: %r %p \n--\"%m\"", pathFormat="\n\t- %p"}'
     def mailSubject = "${buildStatus}: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})"
     def mailContent = readFile mailContentFile
                                // 'popcorn/pipelines/CI-master/summary.html'
+    out.println "================== 1111111111111 ======================"
 
     // Requires "user build vars plugin"
     wrap([$class: 'BuildUser']) {
-        echo "Send SUMMARY HTML Mail ..."
+        out.println "================== Send SUMMARY HTML Mail ... ======================"
         emailext(to: "doronshai@gmail.com", replyTo: "doronshai@tikalk.com",
                 mimeType: 'text/html', subject: mailSubject, body: mailContent,
                 recipientProviders: [[$class: 'DevelopersRecipientProvider'],[$class: 'CulpritsRecipientProvider']]);
