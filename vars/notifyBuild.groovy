@@ -24,11 +24,11 @@ def call(String buildStatus = 'STARTED', String mailContentFile) {
         colorCode = '#FF0000'
     }
 
-    wrap([$class: 'BuildUser']) {
-        echo "Send SUMMARY HTML Mail ..."
-        emailext(to: "${env.DEFAULT_RECIPIENTS}", replyTo: "dorons@tikalk.com",
-                mimeType: 'text/html', subject: mailSubject, body: mailContent,
-                recipientProviders: [[$class: 'DevelopersRecipientProvider'],[$class: 'CulpritsRecipientProvider']]);
-    }
+    //wrap([$class: 'BuildUser']) {
+    //    echo "Send SUMMARY HTML Mail ..."
+    //    emailext(to: "${env.DEFAULT_RECIPIENTS}", replyTo: "dorons@tikalk.com",
+    //            mimeType: 'text/html', subject: mailSubject, body: mailContent,
+    //            recipientProviders: [[$class: 'DevelopersRecipientProvider'],[$class: 'CulpritsRecipientProvider']]);
+    //}
     //emailext attachmentsPattern: '**/test.html', body: readFile 'test.html', subject: summary, to: "${env.DEFAULT_RECIPIENTS}", mimeType: 'text/html', recipientProviders: [[$class: 'DevelopersRecipientProvider'],[$class: 'CulpritsRecipientProvider']]
 }
