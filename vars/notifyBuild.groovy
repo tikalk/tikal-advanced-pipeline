@@ -13,12 +13,6 @@ def call(String buildStatus = 'STARTED', String mailContentFile) {
     
     out.println "================== Printed do Jenkins console ======================"
     
-    
-    
-    
-    
-    // Default values
-    //def TEST = '\${CHANGES, showPaths=true, format="%a: %r %p \n--\"%m\"", pathFormat="\n\t- %p"}'
     def mailSubject = "${buildStatus}: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})"
     def mailContent = readFile mailContentFile
                                // 'popcorn/pipelines/CI-master/summary.html'
