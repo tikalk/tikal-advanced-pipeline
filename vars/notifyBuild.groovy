@@ -1,5 +1,7 @@
 #!/usr/bin/groovy
 
+import settings_mail
+
 def call(String buildStatus = 'STARTED', String mailContentFile) {
     // build status of null means successful
     buildStatus = buildStatus ?: 'SUCCESS'
