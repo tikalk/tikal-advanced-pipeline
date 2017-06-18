@@ -11,13 +11,15 @@ def call(String buildStatus = 'STARTED', String mailContentFile) {
     config.putAll(bindings.getVariables())
     out = config['out']
     
-    out.println "================== Printed do Jenkins console ======================"
-    out.println "================== buildStatus ${buildStatus} ======================"
-    out.println "================== JOB_NAME ${env.JOB_NAME} ======================"
-    out.println "================== BUILD_NUMBER ${env.BUILD_NUMBER} ======================"
-    out.println "================== BUILD_URL ${env.BUILD_URL} ======================"
+    out.println "================== Printed do Jenkins console 1 ======================"
+    out.println "================== buildStatus    ${buildStatus} ======================"
+    out.println "================== JOB_NAME       ${env.JOB_NAME} ======================"
+    out.println "================== BUILD_NUMBER   ${env.BUILD_NUMBER} ======================"
+    out.println "================== BUILD_URL      ${env.BUILD_URL} ======================"
 
     def mailSubject = "${buildStatus}: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})"
+    out.println "================== Printed do Jenkins console 2 ====================="
+
     def mailContent = readFile mailContentFile
 
     out.println "================== 1111111111111 ======================"
