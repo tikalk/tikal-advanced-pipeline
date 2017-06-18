@@ -1,7 +1,7 @@
 #!/usr/bin/groovy
 
 @NonCPS
-def call(String buildStatus = 'STARTED', String mailContentFile) {
+def call(String buildStatus = 'STARTED') {
     // build status of null means successful
     buildStatus = buildStatus ?: 'SUCCESS'
 
@@ -19,7 +19,6 @@ def call(String buildStatus = 'STARTED', String mailContentFile) {
 
     def mailSubject = "${buildStatus}: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})"
     out.println "================== mailSubject      "+ mailSubject + " ======================"
-    out.println "================== mailContent      "+ mailContent + " ======================"
 
     out.println "================== Printed do Jenkins console 2 ====================="
 
