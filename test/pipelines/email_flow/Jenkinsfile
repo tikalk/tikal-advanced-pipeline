@@ -1,3 +1,5 @@
+#!/usr/bin/env groovy
+
 @Library("tikal-advanced-pipeline") _
 
 pipeline 
@@ -16,14 +18,14 @@ pipeline
     post {
         success {
             echo "===================== 1.0 ========================"
-            notifyBuild('SUCCESS','sample.html')
+            TAP_email('SUCCESS','sample.html')
             echo "===================== 2.0 ========================"
         }
         failure {
-            notifyBuild('FAILURE','sample.html')
+            TAP_email('FAILURE','sample.html')
         }  
         unstable {
-            notifyBuild('UNSTABLE','sample.html')
+            TAP_email('UNSTABLE','sample.html')
         }            
     }
 }
