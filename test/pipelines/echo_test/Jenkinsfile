@@ -2,4 +2,4 @@
 
 properties([parameters([string(name: 'TEXT', defaultValue: 'Test TEXT')])])
 
-TAP_basicPipeline (env.TEXT)
+TAP_echo (env.TEXT)
