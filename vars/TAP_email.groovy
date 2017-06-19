@@ -1,7 +1,7 @@
 #!/usr/bin/groovy
 
 @NonCPS
-def call(String buildStatus = 'STARTED') {
+def call(String buildStatus, String mailContentFile) {
     // build status of null means successful
     buildStatus = buildStatus ?: 'SUCCESS'
 
