@@ -1,0 +1,5 @@
+@Library ("tikal-advanced-pipeline") _
+
+properties([parameters([string(name: 'TEXT', defaultValue: 'Test TEXT')])])
+
+TAP_basicPipeline (env.TEXT)
