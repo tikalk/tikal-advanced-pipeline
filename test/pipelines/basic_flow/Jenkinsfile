@@ -7,4 +7,3 @@ settings.flow=env.FLOW
 settings.gitUrl ="git@github.com:tikalk/tikal-advanced-pipeline.git"
 
 TAP_basicPipeline (settings)
-
