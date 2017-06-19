@@ -6,4 +6,4 @@ def settings = new TAP_basic_flow_settings()
 settings.flow=env.FLOW
 settings.gitUrl ="git@github.com:tikalk/tikal-advanced-pipeline.git"
 
-TAP_basicPipeline settings
+TAP_basicPipeline (settings)
