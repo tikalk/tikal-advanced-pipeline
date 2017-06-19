@@ -2,7 +2,7 @@
 
 import basic_flow_settings
 
-def call(settings set) 
+def call(basic_flow_settings set)
 {
     switch (set.flow) {
         case "feature-CI":
@@ -21,7 +21,7 @@ def call(settings set)
     }    
 }
 
-def featureCIFlow(settings set)
+def featureCIFlow(basic_flow_settings set)
 {
     echo "[Flow] " + flow;
     gitUpdate(set.gitUrl)
@@ -30,7 +30,7 @@ def featureCIFlow(settings set)
     ciPostStep()
 }
 
-def masterCIFlow(settings set)
+def masterCIFlow(basic_flow_settings set)
 {
     echo "[Flow] " + flow;
     gitUpdate(set.gitUrl)
@@ -39,7 +39,7 @@ def masterCIFlow(settings set)
     ciPostStep("target/**/*.tar")
 }
 
-def masterReleaseFlow(settings set)
+def masterReleaseFlow(basic_flow_settings set)
 {
     echo "[Flow] " + flow;
     gitUpdate(set.gitUrl)
