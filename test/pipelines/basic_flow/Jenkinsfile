@@ -2,8 +2,8 @@
 
 properties([parameters([string(name: 'FLOW', defaultValue: 'feature-CI')])])
 
-def set = new basic_flow_settings()
+def set = new tap-basic_flow_settings()
 set.flow=env.FLOW
 set.gitUrl ="git@github.com:tikalk/tikal-advanced-pipeline.git"
 
-basicPipeline set
+tap-basicPipeline set

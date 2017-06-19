@@ -1,4 +1,4 @@
-class basic_flow_settings implements Serializable {
+class tap-basic_flow_settings implements Serializable {
     private String flow
     private String gitUrl
 
