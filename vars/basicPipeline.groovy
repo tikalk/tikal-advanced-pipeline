@@ -1,6 +1,6 @@
 #!/usr/bin/groovy
 
-import settings
+import basic_flow_settings
 
 def call(settings set) 
 {
