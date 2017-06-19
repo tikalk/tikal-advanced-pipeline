@@ -1,8 +1,8 @@
 #!/usr/bin/groovy
 
-import basic_flow_settings
+import TAP_basic_flow_settings
 
-def call(basic_flow_settings set)
+def call(TAP_basic_flow_settings set)
 {
     switch (set.flow) {
         case "feature-CI":
@@ -21,7 +21,7 @@ def call(basic_flow_settings set)
     }    
 }
 
-def featureCIFlow(basic_flow_settings set)
+def featureCIFlow(TAP_basic_flow_settings set)
 {
     echo "[Flow] " + flow;
     gitUpdate(set.gitUrl)
@@ -30,7 +30,7 @@ def featureCIFlow(basic_flow_settings set)
     ciPostStep()
 }
 
-def masterCIFlow(basic_flow_settings set)
+def masterCIFlow(TAP_basic_flow_settings set)
 {
     echo "[Flow] " + flow;
     gitUpdate(set.gitUrl)
@@ -39,7 +39,7 @@ def masterCIFlow(basic_flow_settings set)
     ciPostStep("target/**/*.tar")
 }
 
-def masterReleaseFlow(basic_flow_settings set)
+def masterReleaseFlow(TAP_basic_flow_settings set)
 {
     echo "[Flow] " + flow;
     gitUpdate(set.gitUrl)
