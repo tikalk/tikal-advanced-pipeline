@@ -21,6 +21,8 @@ def call(String buildStatus, String mailContentFile) {
     out.println "================== mailSubject      "+ mailSubject + " ======================"
 
     out.println "================== Printed do Jenkins console 2 ====================="
+    out.println "================== Printed do Jenkins console 2 ====================="
+    out.println "================== Printed do Jenkins console 2 ====================="
     
     out.println "================== mailContentFile    " + mailContentFile + " ====================="
     
