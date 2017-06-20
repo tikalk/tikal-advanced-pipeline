@@ -21,10 +21,12 @@ def call(String buildStatus, String mailContentFile) {
     out.println "================== mailSubject      "+ mailSubject + " ======================"
 
     out.println "================== Printed do Jenkins console 2 ====================="
-    out.println "================== mailContentFile   "+ env.WORKSPACE/mailContentFile + " ====================="
     
-    // def mailContent = readFile mailContentFile
-    String mailContent = new File(env.WORKSPACE/mailContentFile).text
+    out.println "================== mailContentFile    " + mailContentFile + " ====================="
+    
+    //String 
+    String mailContent = readFile mailContentFile
+    //String mailContent = new File(env.WORKSPACE/mailContentFile).text
 
     out.println "================== 1111111111111 ======================"
 
