@@ -1,4 +1,4 @@
-# tikal-advanced-pipeline
+# TAP - tikal-advanced-pipeline
 ***Advanced Jenkins Declarative Pipeline library***.
 
 Powered by **[Tikal Knowledge](http://www.tikalk.com)** and the community.
