@@ -1,7 +1,7 @@
 # tikal-advanced-pipeline
-<font size='+1' color='blue'>***Advanced Jenkins Declarative Pipeline library***</font>
+***Advanced Jenkins Declarative Pipeline library***.
 
-Powered by <font size='+2' color='orange'>**[Tikal Knowledge](http://www.tikalk.com)**</font> and the community.
+Powered by **[Tikal Knowledge](http://www.tikalk.com)** and the community.
 <hr/>
 
 Tikal Advanced Pipeline is a library for [Jenkins Pipeline](https://jenkins.io/doc/book/pipeline/).
