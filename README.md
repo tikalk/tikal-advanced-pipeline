@@ -4,7 +4,7 @@
 Powered by **[Tikal Knowledge](http://www.tikalk.com)** and the community.
 <hr/>
 
-Tikal Advanced Pipeline is a library for [Jenkins Pipeline](https://jenkins.io/doc/book/pipeline/).
+Tikal Advanced Pipeline is a [shared library](https://jenkins.io/doc/book/pipeline/shared-libraries/) for [Jenkins Pipeline](https://jenkins.io/doc/book/pipeline/).
 
 The Library is a collection of both tasks and sequences that can be used inside a pipeline.
 
@@ -15,7 +15,7 @@ Developers who wants to contribute to this library - please follow those [instru
 * [TAP_echo]()
 * [TAP_email]()
 
-## Available sequances
+## Available sequences
 
 * [TAP_basicPipeline]()
 
