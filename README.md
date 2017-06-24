@@ -8,7 +8,7 @@ Tikal Advanced Pipeline is a [shared library](https://jenkins.io/doc/book/pipeli
 
 The Library is a collection of both tasks and sequences that can be used inside a pipeline.
 
-Developers who wants to contribute to this library - please follow those [instructions]().
+Developers who wants to contribute to this library - please follow those [instructions](pages/etc/AddingTaskOrSequence.md).
 
 ## Available tasks
 
