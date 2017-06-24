@@ -1,4 +1,4 @@
-# Add a task or a sequence to tikal-advanced-pipeline shared library
+# Adding a task/sequence to tikal-advanced-pipeline
 
 For adding a new task or a sequence, please follow those steps.
 
