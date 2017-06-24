@@ -12,13 +12,13 @@ Developers who wants to contribute to this library - please follow those [instru
 
 ## Available tasks
 
-* [TAP_echo]()
-* [TAP_email]()
+* [TAP_echo](pages/tasks/TAP_echo.md)
+* [TAP_email](pages/tasks/TAP_email.md)
 
 ## Available sequences
 
-* [TAP_basicPipeline]()
+* [TAP_basicPipeline](pages/sequences/TAP_basicPipeline.md)
 
 ## More
 
-* [Instructions for adding task or sequance]()
+* [Instructions for adding task or sequance](pages/etc/AddingTaskOrSequence.md)
