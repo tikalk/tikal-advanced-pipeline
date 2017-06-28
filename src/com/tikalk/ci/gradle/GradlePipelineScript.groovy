@@ -1,12 +1,13 @@
 package com.tikalk.ci.gradle
 
 import com.tikalk.utils.Library
+import com.tikalk.ci.gradle.GradlePipeline
 
 
 @Library('tikal-advanced-pipeline') _
 
-import com.tikalk.ci.gradle.GradlePipeline
-node("slavename") {
+
+node("linux-host-slave") {
     pipeline = new GradlePipeline(this)
     pipeline.run()
 
