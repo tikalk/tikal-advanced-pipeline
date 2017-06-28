@@ -3,7 +3,7 @@ package com.tikalk.ci.gradle
 import com.tikalk.utils.Library
 
 
-@Library('pipeline')
+@Library('tikal-advanced-pipeline')
 def library
 
 node("slavename") {
