@@ -6,7 +6,7 @@ import com.tikalk.utils.Library
 @Library('pipeline')
 def library
 
-node("$envType && python && java && docker") {
+node("slavename") {
     pipeline = new GradlePipeline(this)
     pipeline.run()
 
