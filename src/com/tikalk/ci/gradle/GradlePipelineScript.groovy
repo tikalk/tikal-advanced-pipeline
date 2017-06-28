@@ -4,8 +4,8 @@ import com.tikalk.utils.Library
 
 
 @Library('tikal-advanced-pipeline') _
-def library
 
+import com.tikalk.ci.gradle.GradlePipeline
 node("slavename") {
     pipeline = new GradlePipeline(this)
     pipeline.run()
