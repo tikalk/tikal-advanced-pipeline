@@ -100,7 +100,7 @@ abstract class BasePipeline implements Serializable {
         script.dir("$targetDir") {
             // Run git clean and swallow errors which are normal when running first time
             script.sh returnStatus: true, script: 'git fetch'
-            script.git credentialsId: 'jenkins-github-ssh', url: "git@github.com:behalfinc/${repository}.git", branch: "$branch"
+            script.git credentialsId: 'jenkins-github-ssh', url: "git@.git", branch: "$branch"
         }
     }
 
