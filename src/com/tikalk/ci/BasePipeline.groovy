@@ -39,6 +39,24 @@ abstract class BasePipeline implements Serializable {
         }
     }
 
+    void runStage(String name, Closure stage) {
+        if (currentBuildResult in ['SUCCESS', null]) {
+            script.echo "Start stage $name"
+            script.stage(name, stage)
+            script.echo "End stage $name with result ${currentBuildResult ?: 'SUCCESS'}"
+        } else {
+            script.stage(name) {
+                script.echo "Build is unstable, skipping stage $name"
+                this.firstUnstableStage = firstUnstableStage ?: name
+            }
+        }
+        if (pauseAfterEachStage) {
+            script.timeout(time: 180, unit: 'MINUTES') {
+                script.input 'Continue to next stage?'
+            }
+        }
+    }
+
     void runImpl() {
         runStage('Setup', this.&setup)
         runStage('Checkout', this.&checkout)
