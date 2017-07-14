@@ -1,0 +1,32 @@
+pipeline
+{
+    options
+    {
+        buildDiscarder(logRotator(numToKeepStr: '3'))
+    }
+
+    agent any
+    environment 
+    {
+        PROJECT = 'tap_sample'
+        ECRURL = 'http://999999999999.dkr.ecr.eu-central-1.amazonaws.com'
+        ECRCRED = 'ecr:eu-central-1:tap_ecr'
+    }
+    stages
+    {
+        stage('Docker image pull')
+        {
+            steps
+            {
+                script
+                {
+                    sh("eval \$(aws ecr get-login --no-include-email | sed 's|https://||')")
+                    docker.withRegistry(ECRURL, ECRCRED)
+                    {
+                        docker.image(PROJECT).pull()
+                    }
+                }
+            }
+        }
+    }
+}
