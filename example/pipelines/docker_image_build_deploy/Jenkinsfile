@@ -9,7 +9,7 @@ pipeline
     {
         VERSION = 'latest'
         PROJECT_NAME = 'tap_sample'
-        IMAGE_NAME = '${PROJECT_NAME}:${VERSION}'
+        IMAGE_NAME = 'tap_sample:latest'
         ECR_URL = 'http://905033026906.dkr.ecr.us-east-2.amazonaws.com'
     }
     stages
@@ -64,7 +64,7 @@ pipeline
         always
         {
             // make sure that the Docker image is removed
-            sh "docker rmi ${IMAGE_NAME} | true"
+            //sh "docker rmi ${IMAGE_NAME} | true"
         }
     }
 }
