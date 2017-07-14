@@ -38,7 +38,8 @@ pipeline
                 script
                 {
                     // Build the docker image using a Dockerfile
-                    docker.build(${IMAGE_NAME},"example/pipelines/docker_image_build_deploy")
+                    echo "Building ${IMAGE_NAME} Docker image"
+                    docker.build("${IMAGE_NAME}","example/pipelines/docker_image_build_deploy")
                 }
             }
         }
