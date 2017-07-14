@@ -18,12 +18,11 @@ pipeline
             steps
             {
                 script {
-                    // calculate GIT lastest commit short-hash and time-stamp
-                    gitCommitTime = sh(returnStdout: true, script: 'git log -1 --format=%cd --date=format:\"%Y%m%d%H%M\"').trim()
+                    // calculate GIT lastest commit short-hash
                     gitCommitHash = sh(returnStdout: true, script: 'git rev-parse HEAD').trim()
                     shortCommitHash = gitCommitHash.take(7)
                     // calculate a sample version tag
-                    VERSION = gitCommitTime+'_'+shortCommitHash
+                    VERSION = shortCommitHash
                     // set the build display name
                     currentBuild.displayName = "#${BUILD_ID}-${VERSION}"
                     IMAGE_NAME = "${PROJECT_NAME}:${VERSION}"
