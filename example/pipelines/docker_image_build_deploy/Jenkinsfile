@@ -1,0 +1,69 @@
+pipeline
+{
+    options
+    {
+        buildDiscarder(logRotator(numToKeepStr: '20'))
+    }
+    agent any
+    environment {
+        VERSION = 'latest'
+        PROJECT_NAME = 'tap_sample'
+        IMAGE_NAME = '${PROJECT_NAME}:${VERSION}'
+        ECR_URL = 'http://905033026906.dkr.ecr.us-east-2.amazonaws.com'
+    }
+    stages
+    {
+        stage('Build preparations')
+        {
+            steps
+            {
+                script {
+                    // calculate GIT lastest commit short-hash and time-stamp
+                    gitCommitTime = sh(returnStdout: true, script: 'git log -1 --format=%cd --date=format:\"%Y%m%d%H%M\"').trim()
+                    gitCommitHash = sh(returnStdout: true, script: 'git rev-parse HEAD').trim()
+                    shortCommitHash = gitCommitHash.take(7)
+                    // calculate a sample version tag
+                    VERSION = gitCommitTime+'_'+shortCommitHash
+                    // set the build display name
+                    currentBuild.displayName = "#${BUILD_ID}-${VERSION}"
+                    IMAGE_NAME = "${PROJECT_NAME}:${VERSION}"
+                }
+            }
+        }
+        stage('Docker build')
+        {
+            steps
+            {
+                script
+                {
+                    // Build the docker image using a Dockerfile
+                    docker.build(${IMAGE_NAME},"example/pipelines/docker_image_build_deploy")
+                }
+            }
+        }
+        stage('Docker push')
+        {
+            steps
+            {
+                script
+                {
+                    // login to ECR - for now it seems that that the ECR Jenkins plugin is not performing the login as expected. I hope it will in the future.
+                    sh("eval \$(aws ecr get-login | sed 's|https://||')")
+                    // Push the Docker image to ECR
+                    docker.withRegistry(${ECR_URL}, 'ecr:us-east-2:${PROJECT_NAME}')
+                    {
+                        docker.image(${IMAGE_NAME}).push()
+                    }
+                }
+            }
+        }
+    }
+    post
+    {
+        always
+        {
+            // make sure that the Docker image is removed
+            sh "docker rmi ${IMAGE_NAME} | true"
+        }
+    }
+}
