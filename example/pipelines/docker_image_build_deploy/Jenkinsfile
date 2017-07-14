@@ -11,8 +11,7 @@ pipeline
         PROJECT = 'tap_sample'
         IMAGE = 'tap_sample:latest'
         ECRURL = 'http://905033026906.dkr.ecr.us-east-2.amazonaws.com'
-        REGION = 'eu-central-1'
-        ECRCRED = 'fuse_ecr2'
+        ECRCRED = 'ecr:eu-central-1fuse_ecr2'
     }
     stages
     {
@@ -53,7 +52,7 @@ pipeline
                     // login to ECR - for now it seems that that the ECR Jenkins plugin is not performing the login as expected. I hope it will in the future.
                     sh("eval \$(\${HOME}/.local/bin/aws ecr get-login --no-include-email | sed 's|https://||')")
                     // Push the Docker image to ECR
-                    docker.withRegistry('$ECRURL', 'ecr:$REGION:$ECRCRED')
+                    docker.withRegistry('$ECRURL', '$ECRCRED')
                     {
                         docker.image($IMAGE).push()
                     }
