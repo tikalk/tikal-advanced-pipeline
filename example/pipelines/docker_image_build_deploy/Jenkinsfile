@@ -11,7 +11,7 @@ pipeline
         PROJECT = 'tap_sample'
         IMAGE = 'tap_sample:latest'
         ECRURL = 'http://905033026906.dkr.ecr.us-east-2.amazonaws.com'
-        ECRCRED = 'ecr:eu-central-1fuse_ecr2'
+        ECRCRED = 'ecr:eu-central-1:fuse_ecr2'
     }
     stages
     {
