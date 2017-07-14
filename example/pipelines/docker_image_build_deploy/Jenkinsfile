@@ -8,9 +8,9 @@ pipeline
     environment 
     {
         VERSION = 'latest'
-        PROJECT_NAME = 'tap_sample'
-        IMAGE_NAME = 'tap_sample:latest'
-        ECR_URL = 'http://905033026906.dkr.ecr.us-east-2.amazonaws.com'
+        PROJECT = 'tap_sample'
+        IMAGE = 'tap_sample:latest'
+        URL = 'http://905033026906.dkr.ecr.us-east-2.amazonaws.com'
     }
     stages
     {
@@ -27,7 +27,7 @@ pipeline
                     VERSION = shortCommitHash
                     // set the build display name
                     currentBuild.displayName = "#${BUILD_ID}-${VERSION}"
-                    IMAGE_NAME = "${PROJECT_NAME}:${VERSION}"
+                    IMAGE = "$PROJECT:$VERSION"
                 }
             }
         }
@@ -38,8 +38,7 @@ pipeline
                 script
                 {
                     // Build the docker image using a Dockerfile
-                    echo "Building ${IMAGE_NAME} Docker image"
-                    docker.build("${IMAGE_NAME}","example/pipelines/docker_image_build_deploy")
+                    docker.build("$IMAGE","example/pipelines/docker_image_build_deploy")
                 }
             }
         }
@@ -52,9 +51,9 @@ pipeline
                     // login to ECR - for now it seems that that the ECR Jenkins plugin is not performing the login as expected. I hope it will in the future.
                     sh("eval \$(\${HOME}/.local/bin/aws ecr get-login --no-include-email | sed 's|https://||')")
                     // Push the Docker image to ECR
-                    docker.withRegistry('${ECR_URL}', 'ecr:us-east-2:${PROJECT_NAME}')
+                    docker.withRegistry('$URL', 'ecr:us-east-2:$PROJECT')
                     {
-                        docker.image(${IMAGE_NAME}).push()
+                        docker.image($IMAGE).push()
                     }
                 }
             }
@@ -66,7 +65,7 @@ pipeline
         always
         {
             // make sure that the Docker image is removed
-            sh "docker rmi ${IMAGE_NAME} | true"
+            sh "docker rmi $IMAGE | true"
         }
     }
 }
