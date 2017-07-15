@@ -19,3 +19,6 @@ TAP_echo ("Hello TAP!")
 
 ### Output
 [20170715-05:40:11.393] Hello TAP!
+
+### Test
+[Jenkinsfile](../../test/pipelines/echo_test/Jenkinsfile)
