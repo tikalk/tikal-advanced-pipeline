@@ -19,4 +19,7 @@ Arguments:
 
 ### Output
 
+### Test
+[Jenkinsfile](../../test/pipelines/<code>TEST_NAME_HERE</code>/Jenkinsfile)
+
 
