@@ -1,6 +1,6 @@
-# TAP_!EXAMPLE-NAME-HERE!
+# TAP_<code>EXAMPLE-NAME-HERE</code>
 
-***!Put a description of the example main functionality here!***
+***<code>Put a description of the example main functionality here</code>***
 
 
 

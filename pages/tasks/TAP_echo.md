@@ -1,20 +1,21 @@
-# TAP_!TASK-NAME-HERE!
+# TAP_echo
 
-***!Put a description of the task main functionality here!***
+***Echo text with time-stamp***
 
 # Task usage
 
-TAP_!TASK-NAME-HERE!(arguments)
+TAP_echo(arguments)
 
 Arguments:
 
-| Argument name | Description | Default Value |
+| Argument name and type | Description | Default Value |
 | ------------- | ----------- | ------------- |
-| | | |
-| | | |
+| String text| Text to display| N/A|
 
 # Examples
 
+### Usage
+TAP_echo ("Hello TAP!")
 
-
-
+### Output
+[20170715-05:40:11.393] Hello TAP!

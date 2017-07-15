@@ -1,10 +1,10 @@
-# TAP_!SEQUENCE-NAME-HERE!
+# TAP_<code>SEQUENCE-NAME-HERE</code>
 
-***!Put a description of the sequence main functionality and purpose here!***
+***<code>Put a description of the sequence main functionality and purpose here</code>***
 
 # Sequance usage
 
-TAP_!SEQUENCE-NAME-HERE!(arguments)
+TAP_<code>SEQUENCE-NAME-HERE</code>(arguments)
 
 Arguments:
 

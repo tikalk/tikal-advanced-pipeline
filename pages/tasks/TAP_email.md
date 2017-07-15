@@ -1,20 +1,21 @@
-# TAP_!TASK-NAME-HERE!
+# TAP_email
 
-***!Put a description of the task main functionality here!***
+***Send email notification using the EmailExt plugin***
 
 # Task usage
 
-TAP_!TASK-NAME-HERE!(arguments)
+TAP_email(arguments)
 
 Arguments:
 
-| Argument name | Description | Default Value |
+| Argument name and type | Description | Default Value |
 | ------------- | ----------- | ------------- |
-| | | |
-| | | |
+| String buildStatus | | |
+| mailContentFile | | |
 
 # Examples
 
-
+### Usage
+TAP_email('FAILURE','sample.html')
 
 

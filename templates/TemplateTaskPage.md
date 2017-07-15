@@ -1,20 +1,22 @@
-# TAP_!TASK-NAME-HERE!
+# TAP_<code>TASK-NAME-HERE</code>
 
-***!Put a description of the task main functionality here!***
+***<code>Put a description of the task main functionality here</code>***
 
 # Task usage
 
-TAP_!TASK-NAME-HERE!(arguments)
+TAP_<code>TASK-NAME-HERE</code>(arguments)
 
 Arguments:
 
-| Argument name | Description | Default Value |
+| Argument name and type | Description | Default Value |
 | ------------- | ----------- | ------------- |
 | | | |
 | | | |
 
 # Examples
 
+### Usage
 
+### Output
 
 
