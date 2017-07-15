@@ -19,5 +19,5 @@ Arguments:
 TAP_email('FAILURE','sample.html')
 
 ### Test
-[Jenkinsfile](../../test/pipelines/email_test/Jenkinsfile)
+[Jenkinsfile](../../test/pipelines/email_flow/Jenkinsfile)
 
