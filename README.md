@@ -1,15 +1,15 @@
 ![Tikal-Advanced-Pipeline](pages/images/TAP-small.png)
 # TAP - tikal-advanced-pipeline
-***Advanced Jenkins Declarative Pipeline library***.
+***Advanced Jenkins Pipeline library***.
 
 Powered by **[Tikal Knowledge](http://www.tikalk.com)** and the community.
 <hr/>
 
 Tikal Advanced Pipeline is a [shared library](https://jenkins.io/doc/book/pipeline/shared-libraries/) for [Jenkins Pipeline](https://jenkins.io/doc/book/pipeline/).
 
-The Library is a collection of both tasks and sequences that can be used inside a pipeline.
+The Library is a collection of tasks, sequences and examples that can be used inside a pipeline.
 
-Developers who wants to contribute to this library - please follow those [instructions](pages/etc/AddingTaskOrSequence.md).
+Anyone who wants to contribute to this library - please follow those [instructions](pages/etc/AddingTaskOrSequence.md).
 
 ## Available tasks
 
@@ -20,6 +20,11 @@ Developers who wants to contribute to this library - please follow those [instru
 
 * [TAP_basicPipeline](pages/sequences/TAP_basicPipeline.md)
 
+## Available examples
+
+* [Build a Docker image and push it to ECR](pages/examples/TAP_docker_image_build_push_ecr.md)
+* [Pull Docker image from ECR](pages/examples/TAP_docker_image_pull_ecr.md)
+
 ## More
 
-* [Instructions for adding task or sequance](pages/etc/AddingTaskOrSequence.md)
+* [Instructions for adding task, sequance and examples](pages/etc/AddingTAPItems.md)

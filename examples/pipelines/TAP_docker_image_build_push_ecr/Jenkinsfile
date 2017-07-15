@@ -39,7 +39,7 @@ pipeline
                 script
                 {
                     // Build the docker image using a Dockerfile
-                    docker.build("$IMAGE","example/pipelines/docker_image_build_deploy")
+                    docker.build("$IMAGE","examples/pipelines/docker_image_build_push_ecr")
                 }
             }
         }
