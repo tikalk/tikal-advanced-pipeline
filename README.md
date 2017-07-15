@@ -1,3 +1,4 @@
+![Tikal-Advanced-Pipeline](pages/images/TAP-small.png)
 # TAP - tikal-advanced-pipeline
 ***Advanced Jenkins Declarative Pipeline library***.
 
