@@ -12,7 +12,7 @@ node() {
     def pipeline = new ArtifactoryPipeline(this)
 
     pipeline.artifactoryName = 'artifactory'
-    pipeline.mavenName = 'mvn339'
+    pipeline.mavenName = 'mvn350'
 
     pipeline.snapshotRepo = 'libs-snapshot-local'
     pipeline.releaseRepo = 'libs-release-local'
