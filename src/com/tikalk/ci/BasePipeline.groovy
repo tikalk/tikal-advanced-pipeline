@@ -4,12 +4,17 @@ import com.tikalk.utils.Logger
 import com.cloudbees.groovy.cps.NonCPS
 
 abstract class BasePipeline implements Serializable {
+
+    def logger
     def script
+    def gitBranch
+
+    def firstUnstableStage
+    def pauseAfterEachStage
 
     BasePipeline(script) {
         this.script = script
-        def params = script.params
-        this.jiraIssueId = params.jiraIssueId ?: (gitBranch ?: '').split("/")[-1]
+
         logger = new Logger(script)
     }
 
@@ -105,7 +110,6 @@ abstract class BasePipeline implements Serializable {
         '''
     }
 
-
     void checkout() {
 
     }
@@ -133,7 +137,6 @@ abstract class BasePipeline implements Serializable {
         }
     }
 
-
     void build() {
     }
 
@@ -149,12 +152,10 @@ abstract class BasePipeline implements Serializable {
         // Implement in CIs where UTs are not being run during compile (i.e. non maven builds)
     }
 
-
+    void systemTests() {}
 
     void prepareTestEnv() {
-     }
-
-
+    }
 
     void waitForService(Map m) {
         script.echo "Waiting for ${m.name} to start"
@@ -178,21 +179,18 @@ abstract class BasePipeline implements Serializable {
                 .join('\n')
     }
 
-
-
-
     void runTests() {
-            runSystemTests()
-            archiveTestScreenshots()
-            archiveTestResults()
-            // Archiving test results can change script.currentBuilt.result
+        runSystemTests()
+        archiveTestScreenshots()
+        archiveTestResults()
+        // Archiving test results can change script.currentBuilt.result
 
     }
 
-
-    void runSystemTests(){
+    void runSystemTests() {
 
     }
+
     void archiveTestScreenshots() {
     }
 
@@ -206,13 +204,11 @@ abstract class BasePipeline implements Serializable {
         script.step([$class: 'WsCleanup'])
     }
 
-
     void archiveTestResults() {
         // Publishing testNG results
         script.step([$class     : 'JUnitResultArchiver', allowEmptyResults: true,
                      testResults: "**/target/failsafe-reports/junitreports/TEST-*.xml"])
     }
-
 
     void gitMergeMaster() {
         script.echo 'Checkout master and merge the feature branch to it'
@@ -240,9 +236,7 @@ abstract class BasePipeline implements Serializable {
         }
     }
 
-
     String getCurrentBuildResult() {
         return script.currentBuild.result
     }
-
 }
