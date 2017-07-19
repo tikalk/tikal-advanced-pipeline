@@ -142,8 +142,8 @@ class ArtifactoryPipeline extends BasePipeline {
 
     void gitConfig() {
         script.sh '''
-            git config user.name Jenkins
-            git config user.email nobody@domain.com'''
+            //git config user.name Jenkins
+            //git config user.email nobody@domain.com'''
     }
 
     void gitCommit() {
