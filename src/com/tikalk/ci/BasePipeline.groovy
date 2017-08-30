@@ -83,8 +83,8 @@ abstract class BasePipeline implements Serializable {
     }
 
     void populateBuildInfo() {
-        populateBuildDisplayName()
-        populateBuildDescription()
+//        populateBuildDisplayName()
+//        populateBuildDescription()
     }
 
     void populateBuildDisplayName() {
