@@ -30,13 +30,13 @@ class GradlePipeline extends BasePipeline {
         gitCredentialsId = script.params.gitCredentialsId //script.params.// Implement to set params that are not able to set in constructor (due to @NonCPS etc)
         gitRepoUrl  = script.params.gitRepoUrl
         buildTarget = script.params.buildTarget //script.params.// Implement to set params that are not able to set in constructor (due to @NonCPS etc)
-
+        dockerHost  = "localhost"
     }
     @Override
     void build() {
         logger.info "Implements gradle build here"
         script.sh "ls"
-        script.sh './gradlew ' + buildTarget
+        script.sh "./gradlew $buildTarget -PdockerHost=$dockerHost"
     }
 
 
