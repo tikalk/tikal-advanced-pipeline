@@ -27,7 +27,6 @@ class GradlePipeline extends BasePipeline {
     @Override
     void initParams()
     {
-        this.&initParams()
         buildTarget = script.params.buildTarget //script.params.// Implement to set params that are not able to set in constructor (due to @NonCPS etc)
 
     }
