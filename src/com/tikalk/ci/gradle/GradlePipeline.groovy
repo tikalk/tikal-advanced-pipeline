@@ -6,6 +6,7 @@ class GradlePipeline extends BasePipeline {
     boolean debugMode
     int waitForInputTimeout
     def buildTarget
+    def dockerHost
 
 
     GradlePipeline(script) {
