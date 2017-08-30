@@ -20,5 +20,3 @@ node("linux-host-slave") {
             to: 'itai@tikalk.com'
      }
 
-return this
-
