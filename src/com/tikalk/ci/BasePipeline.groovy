@@ -8,6 +8,7 @@ abstract class BasePipeline implements Serializable {
     def logger
     def script
     def gitBranch
+    def gitCredentialsId
 
     def firstUnstableStage
     def pauseAfterEachStage
@@ -79,7 +80,7 @@ abstract class BasePipeline implements Serializable {
     }
 
     void initParams() {
-        // Implement to set params that are not able to set in constructor (due to @NonCPS etc)
+        gitCredentialsId = "Jenkins" //script.params.// Implement to set params that are not able to set in constructor (due to @NonCPS etc)
     }
 
     void populateBuildInfo() {
