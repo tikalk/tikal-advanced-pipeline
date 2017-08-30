@@ -5,6 +5,7 @@ import com.tikalk.ci.BasePipeline
 class GradlePipeline extends BasePipeline {
     boolean debugMode
     int waitForInputTimeout
+    def buildTarget
 
 
     GradlePipeline(script) {
@@ -24,10 +25,17 @@ class GradlePipeline extends BasePipeline {
     }
 
     @Override
+    void initParams()
+    {
+        super.initParams()
+        buildTarget = script.params.buildTarget //script.params.// Implement to set params that are not able to set in constructor (due to @NonCPS etc)
+
+    }
+    @Override
     void build() {
         logger.info "Implements gradle build here"
         script.sh "ls"
-        script.sh './gradlew build'
+        script.sh './gradlew ' + buildTarget
     }
 
 
