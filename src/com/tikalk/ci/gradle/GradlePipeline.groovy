@@ -27,7 +27,7 @@ class GradlePipeline extends BasePipeline {
     void build() {
         logger.info "Implements gradle build here"
         script.sh "ls"
-        script.sh 'gradlew build'
+        script.sh './gradlew build'
     }
 
 
