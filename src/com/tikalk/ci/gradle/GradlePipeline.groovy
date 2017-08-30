@@ -26,7 +26,7 @@ class GradlePipeline extends BasePipeline {
     @Override
     void build() {
         logger.info "Implements gradle build here"
-        sh 'gradlew build'
+        script.sh 'gradlew build'
     }
 
 
