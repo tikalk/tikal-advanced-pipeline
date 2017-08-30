@@ -111,6 +111,7 @@ abstract class BasePipeline implements Serializable {
     }
 
     void checkout() {
+        script.git credentialsId: gitCredentialsId, url: gitRepoUrl
 
     }
 
