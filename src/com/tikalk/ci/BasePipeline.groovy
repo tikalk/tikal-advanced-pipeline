@@ -88,7 +88,7 @@ abstract class BasePipeline implements Serializable {
     }
 
     void populateBuildDisplayName() {
-        script.currentBuild.displayName = "${script.currentBuild.displayName} ${gitBranch ?: ''}"
+        script.currentBuild.displayName = "" //"""${script.currentBuild.displayName} ${gitBranch ?: ''}"
     }
 
     void populateBuildDescription() {
