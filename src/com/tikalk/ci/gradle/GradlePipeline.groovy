@@ -7,6 +7,8 @@ class GradlePipeline extends BasePipeline {
     int waitForInputTimeout
     def buildTarget
     def dockerHost
+    def certPath
+    def certUrl
 
 
     GradlePipeline(script) {
@@ -32,6 +34,8 @@ class GradlePipeline extends BasePipeline {
         gitRepoUrl  = script.params.gitRepoUrl
         buildTarget = script.params.buildTarget //script.params.// Implement to set params that are not able to set in constructor (due to @NonCPS etc)
         dockerHost  = script.params.dockerHost
+        certPath  = script.params.certPath
+        certUrl  = script.params.certUrl
     }
 
     @Override
