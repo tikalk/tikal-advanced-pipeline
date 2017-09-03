@@ -42,7 +42,7 @@ class GradlePipeline extends BasePipeline {
     void build() {
         logger.info "Implements gradle build here"
         script.sh "ls"
-        script.sh "./gradlew $buildTarget -PdockerHost=$dockerHost,certUrl=$certUrl,certPath=$certPath"
+        script.sh "./gradlew $buildTarget -PdockerHost=$dockerHost -PcertUrl=$certUrl -PcertPath=$certPath"
     }
 
 
