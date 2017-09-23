@@ -21,7 +21,7 @@ pipeline
     {
         dockerfile
         {
-            filename 'examples/TAP_generic_python_runner/Dockerfile'
+            filename 'examples/pipelines/TAP_generic_python_runner/Dockerfile'
             args "-u root -v /var/run/docker.sock:/var/run/docker.sock"
         }
     }
