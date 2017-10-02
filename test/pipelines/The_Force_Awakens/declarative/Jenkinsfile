@@ -1,0 +1,50 @@
+pipeline
+{
+    agent any
+    stages
+    {
+        stage('Setup')
+        {
+            script
+            {
+                currentBuild.displayName = "#${BUILD_ID} | ${MARKERS}"
+            }
+            checkout([
+                    $class: 'GitSCM', branches: [[name: 'master']],
+                    userRemoteConfigs: [[url: 'https://github.com/tikalk/maven-hello-world']]
+            ])
+        }
+        stage('Code build')
+        {
+            steps
+            {
+                withMaven
+                {
+                    sh "mvn clean install -DskipTests -f my-app/pom.xml"
+                }
+            }
+        }
+        stage('Unit tests')
+        {
+            steps
+            {
+                withMaven
+                {
+                    sh "mvn test -f my-app/pom.xml"
+                }
+            }
+        }
+        stage('Integration tests')
+        {
+            steps
+            {
+                sh "java -jar my-app/target/my-app-1.0-SNAPSHOT.jar ${SEQUENCE}"
+            }
+        }
+    }
+    post
+    {
+        junit 'my-app/target//surefire-reports/*.xml'
+        archiveArtifacts '**/target/**/my-app-*.jar'
+    }
+}

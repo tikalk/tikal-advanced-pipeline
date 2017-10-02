@@ -1,0 +1,30 @@
+node
+{
+    stage('Setup')
+    {
+        script
+                {
+                    currentBuild.displayName = "#${BUILD_ID} | ${MARKERS}"
+                }
+        checkout([
+                $class: 'GitSCM', branches: [[name: 'master']],
+                userRemoteConfigs: [[url: 'https://github.com/tikalk/maven-hello-world']]
+        ])
+    }
+    stage('Code build')
+    {
+        echo "Code build"
+    }
+    stage('Unit tests')
+    {
+        echo "Unit tests"
+    }
+    stage('Deploy')
+    {
+        echo "Deploy"
+    }
+    stage('Integration tests')
+    {
+        echo "Integration tests"
+    }
+}
