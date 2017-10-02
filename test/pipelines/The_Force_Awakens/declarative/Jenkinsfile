@@ -1,5 +1,17 @@
 pipeline
 {
+    parameters
+    {
+        string(name: 'SEQUENCE', defaultValue: '', description: 'Star Wars movie sequence number')
+    }
+
+    options
+    {
+        buildDiscarder(logRotator(numToKeepStr: '50'))
+        ansiColor('xterm')
+        timestamps()
+    }
+
     agent any
     stages
     {
@@ -7,7 +19,7 @@ pipeline
         {
             script
             {
-                currentBuild.displayName = "#${BUILD_ID} | ${MARKERS}"
+                currentBuild.displayName = "#${BUILD_ID} | ${SEQUENCE}"
             }
             checkout([
                     $class: 'GitSCM', branches: [[name: 'master']],
