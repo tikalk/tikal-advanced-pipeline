@@ -33,7 +33,7 @@ pipeline
         {
             steps
             {
-                withMaven(maven: 'M2')
+                withMaven(jdk: 'jdk8u131', maven: 'mvn350')
                 {
                     sh "mvn clean install -DskipTests -f my-app/pom.xml"
                 }
@@ -43,7 +43,7 @@ pipeline
         {
             steps
             {
-                withMaven
+                withMaven(jdk: 'jdk8u131', maven: 'mvn350')
                 {
                     sh "mvn test -f my-app/pom.xml"
                 }
