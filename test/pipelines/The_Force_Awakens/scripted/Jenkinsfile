@@ -1,3 +1,5 @@
+properties([parameters([string(defaultValue: '', description: 'Star Wars movie sequence number', name: 'SEQUENCE')]), pipelineTriggers([])])
+
 node
 {
     stage('Setup')
