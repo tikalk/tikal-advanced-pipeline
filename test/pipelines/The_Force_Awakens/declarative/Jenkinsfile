@@ -59,7 +59,10 @@ pipeline
     }
     post
     {
-        junit 'my-app/target//surefire-reports/*.xml'
-        archiveArtifacts '**/target/**/my-app-*.jar'
+        always
+        {
+            junit 'my-app/target//surefire-reports/*.xml'
+            archiveArtifacts '**/target/**/my-app-*.jar'
+        }
     }
 }
