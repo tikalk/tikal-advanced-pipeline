@@ -33,7 +33,7 @@ pipeline
         {
             steps
             {
-                withMaven
+                withMaven(maven: 'M2')
                 {
                     sh "mvn clean install -DskipTests -f my-app/pom.xml"
                 }
