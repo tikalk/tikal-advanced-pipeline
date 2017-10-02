@@ -23,9 +23,8 @@ pipeline
                 {
                     currentBuild.displayName = "#${BUILD_ID} | ${SEQUENCE}"
                 }
-                checkout([$class           : 'GitSCM', branches: [[name: 'master']],
-                          userRemoteConfigs: [[url
-                                               : 'https://github.com/tikalk/maven-hello-world']]
+                checkout([$class: 'GitSCM', branches: [[name: 'master']],
+                          userRemoteConfigs: [[url: 'https://github.com/tikalk/maven-hello-world']]
                 ])
             }
         }
