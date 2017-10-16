@@ -1,0 +1,42 @@
+pipeline
+{
+    parameters {
+        string(name: 'REPOSITORY_URL', defaultValue: '', description: '<BR><font color=RED>*</font> URL to GIT repository')
+        string(name: 'BRANCH', defaultValue: 'master', description: '<BR>Name of branch (default: master)')
+        string(name: 'REQUIREMENTS_FILE', description: '<BR>Relative path to the requirements file')
+        string(name: 'PYTHON_SCRIPT_FILE', description: '<BR><font color=RED>*</font> Relative path to the python script')
+    }
+
+    agent {
+        dockerfile {
+            filename 'examples/pipelines/TAP_generic_python_runner/Dockerfile'
+        }
+    }
+
+    stages {
+        stage('Setup') {
+            steps {
+                checkout([
+                        $class           : 'GitSCM', branches: [[name: BRANCH]],
+                        userRemoteConfigs: [[url: "${REPOSITORY_URL}"]]
+                ])
+            }
+        }
+
+        stage('Install requirements') {
+            steps {
+                sh "pip install -r ${REQUIREMENTS_FILE}"
+            }
+        }
+        stage('Run script') {
+            steps {
+                script
+                {
+                    sh "python ./${PYTHON_SCRIPT_FILE}"
+                }
+            }
+        }
+    }
+}
+
+
