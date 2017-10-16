@@ -7,18 +7,17 @@ Powered by **[Tikal Knowledge](http://www.tikalk.com)** and the community.
 
 Tikal Advanced Pipeline is a [shared library](https://jenkins.io/doc/book/pipeline/shared-libraries/) for [Jenkins Pipeline](https://jenkins.io/doc/book/pipeline/).
 
-The Library is a collection of tasks, sequences and examples that can be used inside a pipeline.
+The Library is a collection of tasks and examples that can be used inside a pipeline.
 
 Anyone who wants to contribute to this library - please follow those [instructions](pages/etc/AddingTaskOrSequence.md).
 
 ## Available tasks
 
+* [TAP_advancedSlackNotification](pages/tasks/TAP_advancedSlackNotification.md)
 * [TAP_echo](pages/tasks/TAP_echo.md)
 * [TAP_email](pages/tasks/TAP_email.md)
-
-## Available sequences
-
-* [TAP_basicPipeline](pages/sequences/TAP_basicPipeline.md)
+* [TAP_getBuildUserId](pages/tasks/TAP_getBuildUserId.md)
+* [TAP_setStatusByLogText](pages/tasks/TAP_setStatusByLogText.md)
 
 ## Available examples
 
@@ -27,4 +26,4 @@ Anyone who wants to contribute to this library - please follow those [instructio
 
 ## More
 
-* [Instructions for adding task, sequance and examples](pages/etc/AddingTAPItems.md)
+* [Instructions for adding task and example](pages/etc/AddingTAPItems.md)

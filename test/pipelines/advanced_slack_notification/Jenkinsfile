@@ -1,6 +1,5 @@
 @Library("tikal-advanced-pipeline") _
 
-
 pipeline
 {
     agent any
