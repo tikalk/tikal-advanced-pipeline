@@ -1,5 +1,5 @@
 ![Tikal-Advanced-Pipeline](../resources/images/TAP-small.png)
-# ***tikal-Advanced-Pipeline Available tasks***
+# ***tikal-Advanced-Pipeline available tasks***
 
 Powered by **[Tikal Knowledge](http://www.tikalk.com)** and the community.
 <hr/>
