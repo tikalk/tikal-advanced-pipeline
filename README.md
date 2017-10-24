@@ -19,7 +19,7 @@ Anyone who wants to contribute to this library - please follow the instructions 
 * TAP_getBuildUserId
 * TAP_setStatusByLogText
 
-## [Available examples](resources/pages/examples/README.md)
+## [Available examples](examples/README.md)
 
 * Build a Docker image and push it to ECR
 * Pull Docker image from ECR
