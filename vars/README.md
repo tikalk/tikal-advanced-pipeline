@@ -5,11 +5,11 @@
 Powered by **[Tikal Knowledge](http://www.tikalk.com)** and the community.
 <hr/>
 
-# TAP_advancedSlackNotification
+## TAP_advancedSlackNotification
 
 ***Send a well-formatted Slack notification***
 
-# Task usage
+#### Task usage
 
 TAP_advancedSlackNotification(arguments)
 
@@ -21,23 +21,14 @@ Arguments:
 | String channel| Slack channel| N/A|
 | String additionalMessageText| Additional text to the notification message| empty text|
 
-# Examples
-
-### Usage
+#### Example
 TAP_advancedSlackNotification ("SUCCESS","test-channel","@here")
 
-### Output
-*BUILD SUCCESS*
-
-[Job] *TEST-JOB #1*
-[Name] *#1
-[Console] http://jenkins.test-corporate.com:8080/job/TEST-JOB/1/consoleFull
-
-# TAP_echo
+## TAP_echo
 
 ***Echo text with time-stamp***
 
-# Task usage
+#### Task usage
 
 TAP_echo(arguments)
 
@@ -47,19 +38,17 @@ Arguments:
 | ------------- | ----------- | ------------- |
 | String text| Text to display| N/A|
 
-# Examples
-
-### Usage
+#### Example
 TAP_echo ("Hello TAP!")
 
-### Output
+#### Output
 [20170715-05:40:11.393] Hello TAP!
 
-# TAP_email
+## TAP_email
 
 ***Send email notification using the EmailExt plugin***
 
-# Task usage
+##### Task usage
 
 TAP_email(arguments)
 
@@ -70,36 +59,31 @@ Arguments:
 | String buildStatus | | |
 | mailContentFile | | |
 
-# Examples
-
-### Usage
+#### Example
 TAP_email('FAILURE','sample.html')
 
-# TAP_getBuildUserId
+## TAP_getBuildUserId
 
 ***Get job acticator user-id***
 
-# Task usage
+#### Task usage example
 
 def userId = TAP_getBuildUserId()
 
-### Usage
-TAP_getBuildUserId ()
-
-# TAP_setStatusByLogText
+## TAP_setStatusByLogText
 
 ***set the build status based on searched text in the build log file***
 
-# Task usage
+#### Task usage
 
 TAP_setStatusByLogText(Arguments)
 
 Arguments:
 | String searchText| Text to search| N/A|
 
-### Usage
+#### Example
 TAP_setStatusByLogText ("ERROR")
 
-### Output
+#### Output
 Found 'ERROR' in build log
 
