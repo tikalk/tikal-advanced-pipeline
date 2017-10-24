@@ -79,6 +79,8 @@ def userId = TAP_getBuildUserId()
 TAP_setStatusByLogText(Arguments)
 
 Arguments:
+| Argument name and type | Description | Default Value |
+| ------------- | ----------- | ------------- |
 | String searchText| Text to search| N/A|
 
 #### Example
