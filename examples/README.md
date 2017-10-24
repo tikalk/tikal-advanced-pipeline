@@ -1,6 +1,5 @@
 ![Tikal-Advanced-Pipeline](../resources/images/TAP-small.png)
-# TAP - tikal-advanced-pipeline
-***Advanced Jenkins Pipeline library examples***.
+# ***tikal-Advanced-Pipeline examples***
 
 Powered by **[Tikal Knowledge](http://www.tikalk.com)** and the community.
 <hr/>

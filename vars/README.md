@@ -1,6 +1,5 @@
 ![Tikal-Advanced-Pipeline](../resources/images/TAP-small.png)
-# TAP - tikal-advanced-pipeline
-***Advanced Jenkins Pipeline library available tasks***.
+# ***tikal-Advanced-Pipeline Available tasks***
 
 Powered by **[Tikal Knowledge](http://www.tikalk.com)** and the community.
 <hr/>
