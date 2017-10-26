@@ -67,11 +67,10 @@ abstract class BasePipeline implements Serializable {
         runStage('Setup', this.&setup)
         runStage('Checkout', this.&checkout)
         runStage('Build', this.&build)
-        runStage( name: 'upload Artifact', this.&uploadArtifact)
+        runStage('Upload Artifact', this.&uploadArtifact)
         runStage('Prepare Test Env', this.&prepareTestEnv)
         runStage('System Tests', this.&systemTests)
         runStage('Deploy', this.&deploy)
-
 
     }
 
