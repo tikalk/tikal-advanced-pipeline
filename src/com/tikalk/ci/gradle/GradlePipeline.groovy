@@ -9,6 +9,7 @@ class GradlePipeline extends BasePipeline {
     def dockerHost
     def certPath
     def certUrl
+    def uploadArtifactTarget
 
 
     GradlePipeline(script) {
