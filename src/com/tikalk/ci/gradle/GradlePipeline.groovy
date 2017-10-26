@@ -33,6 +33,7 @@ class GradlePipeline extends BasePipeline {
         gitCredentialsId = script.params.gitCredentialsId //script.params.// Implement to set params that are not able to set in constructor (due to @NonCPS etc)
         gitRepoUrl  = script.params.gitRepoUrl
         buildTarget = script.params.buildTarget //script.params.// Implement to set params that are not able to set in constructor (due to @NonCPS etc)
+        uploadArtifactTarget = script.params.uploadArtifactTarget != null ?  script.params.uploadArtifactTarget : 'pushImage'
         dockerHost  = script.params.dockerHost
         certPath  = script.params.certPath
         certUrl  = script.params.certUrl
@@ -49,7 +50,7 @@ class GradlePipeline extends BasePipeline {
     void uploadArtifact() {
         logger.info "Implements gradle build here"
         script.sh "ls"
-        script.sh "./gradlew $buildTarget -PdockerHost=$dockerHost -PcertUrl=$certUrl -PcertPath=$certPath"
+        script.sh "./gradlew $uploadArtifactTarget"
     }
 
 
