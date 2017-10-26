@@ -51,7 +51,7 @@ class GradlePipeline extends BasePipeline {
     void uploadArtifact() {
         logger.info "Implements gradle build here"
         script.sh "ls"
-        script.sh "./gradlew $uploadArtifactTarget"
+        script.sh "./gradlew $uploadArtifactTarget -PdockerHost=$dockerHost -PcertUrl=$certUrl -PcertPath=$certPath"
     }
 
 
