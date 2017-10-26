@@ -67,9 +67,11 @@ abstract class BasePipeline implements Serializable {
         runStage('Setup', this.&setup)
         runStage('Checkout', this.&checkout)
         runStage('Build', this.&build)
+        runStage( name: 'upload Artifact', this.&uploadArtifact)
         runStage('Prepare Test Env', this.&prepareTestEnv)
         runStage('System Tests', this.&systemTests)
         runStage('Deploy', this.&deploy)
+
 
     }
 
@@ -102,6 +104,10 @@ abstract class BasePipeline implements Serializable {
 
     void deploy(){
         logger.info "Implements deploy logic here (push to docker , maven, gradle deploy)"
+    }
+
+    void uploadArtifact(){
+        logger.info "Implements uploading artifacts to various repositories (push to docker , maven, gradle deploy)"
     }
 
     void setGitConfig() {

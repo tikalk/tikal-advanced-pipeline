@@ -45,6 +45,13 @@ class GradlePipeline extends BasePipeline {
         script.sh "./gradlew $buildTarget -PdockerHost=$dockerHost -PcertUrl=$certUrl -PcertPath=$certPath"
     }
 
+    @Override
+    void uploadArtifact() {
+        logger.info "Implements gradle build here"
+        script.sh "ls"
+        script.sh "./gradlew $buildTarget -PdockerHost=$dockerHost -PcertUrl=$certUrl -PcertPath=$certPath"
+    }
+
 
     void waitForInput() {
         script.timeout(time: waitForInputTimeout, unit: 'MINUTES') {
