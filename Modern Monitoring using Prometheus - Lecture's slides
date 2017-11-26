@@ -1,0 +1,20 @@
+Following our successful meetup, I’d like to share the slides with you.
+
+•  Tlak 1-  by me. 
+In the 1st part of the talk will focus on the new "Dimensions" of monitoring and how a Modern monitoring system should look like. 
+
+No, there is no one size fit all every Monitoring system has its challenges considering the # of endpoints the # of services and their corresponding metrics.
+
+<iframe src="https://drive.google.com/file/d/1cYkHW-rUk0rTnoEFUs1JCAXa_jfMvoWU/preview" width="640" height="480"></iframe>
+
+In the 2nd part, We will be focusing on Prometheus as a Modern Monitoring solution which unfolds many of those principles. 
+At the end of the talk, I will be Demoing a monitored system and take a look on how we built it with Prometheus built-in discovery capabilities.  
+
+<iframe src="https://drive.google.com/file/d/16LwOBYJ1Dq_iWPTZQhEq4oHfWMQnWqEJ/preview" width="640" height="480"></iframe>
+
+
+•  Talk 2 - by Salo Shp. DevOps Architect.
+We'll cover an alternate monitoring solution stack, and demonstrate how to collect metrics with Telegraf, store in Elastic, and dashboards via Grafana. 
+Additionally, W'll show how one can monitor its Consul services state, and hook this data to that solution stack easily.
+
+
